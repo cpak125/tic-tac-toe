@@ -71,8 +71,15 @@ function render() {
   board.forEach(function(sq, idx) {
     squares[idx].textContent = lookup[sq]['mark'];
     squares[idx].style.color = lookup[sq]['color'];
-
   });
+
+  if (winner === 'T') {
+    message.innerHTML = "Woah it's a TIE!!!";
+  } else if (winner) {
+    message.innerHTML = `<span style="color:${lookup[winner]['color']}">${lookup[winner]['color'].toUpperCase()}</span> is victorious!`;
+  } else {
+    message.innerHTML = `<span style="color:${lookup[turn]['color']}"> ${lookup[turn]['color'].toUpperCase()}</span > 's turn!`;;
+  }
 }
 
-
+;
